@@ -8,6 +8,10 @@ Single page vanilla javascript source at [public/index.html](public/index.html)
 Demo at   https://hpssjellis.github.io/my-examples-of-arduino-webusb-webSerial/public/index.html
 
 
+https://makeabilitylab.github.io/physcomp/communication/web-serial.html#simple-bidirectional-text-webpage
+
+
+
 ## Cables for Mobile devices. Note: Mobile has some issues
 
 https://www.adafruit.com/product/3878
