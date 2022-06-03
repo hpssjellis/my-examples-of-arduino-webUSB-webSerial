@@ -1,4 +1,4 @@
-<h6>Version 0.1.2-5</h6>
+<h6>Version 0.1.3-6</h6>
 
 
 
@@ -24,7 +24,7 @@ navigator.serial.getPorts().then((ports) => {
 });
 
 button.addEventListener('click', () => {
-  const usbVendorId = "2341";   // Specific for Arduino
+  const usbVendorId = 0x2341;   // Specific for Arduino
   navigator.serial.requestPort({ filters: [{ usbVendorId }]}).then((port) => {
     // Connect to `port` or add it to the list of available ports.
   }).catch((e) => {
@@ -47,7 +47,7 @@ navigator.serial.getPorts().then((ports) => {
 });
 
 button.addEventListener('click', () => {
-  const usbVendorId = "2341";  // Specific for Arduino
+  const usbVendorId = 0x2341;  // Specific for Arduino
   navigator.serial.requestPort({ filters: [{ usbVendorId }]}).then((port) => {
     // Connect to `port` or add it to the list of available ports.
   }).catch((e) => {
