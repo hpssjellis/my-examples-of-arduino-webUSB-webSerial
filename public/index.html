@@ -28,7 +28,7 @@ button.addEventListener('click', () => {
   const usbVendorId = 0x2341;   // Specific for Arduino  //usbProductId: ???
   navigator.serial.requestPort({ filters: [{ usbVendorId }]}).then((port) => {
     // Connect to `port` or add it to the list of available ports.
-    serial.write('1');
+    navigator.serial.write('1');
     console.log("navigator.serial")
     console.log(navigator.serial)    
     console.log("navigator.serialport")
@@ -71,6 +71,8 @@ button2.addEventListener('click2', () => {
     console.log(navigator.serialport)
     console.log("navigator.serial.serialport")
     console.log(navigator.serial.serialport)
+    console.log("navigator.serial.read()")
+    console.log(navigator.serial.read())
 
   }).catch((e) => {    
     console.log('e')
