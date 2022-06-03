@@ -1,4 +1,4 @@
-<h6>Version 0.1.4-7</h6>
+<h6>Version 0.1.5-8</h6>
 
 
 
@@ -42,6 +42,8 @@ button.addEventListener('click', () => {
   
   navigator.serial.addEventListener('connect', (e) => {
   // Connect to `e.target` or add it to a list of available ports.
+    console.log('e.target')
+    console.log(e.target)
 });
 
 navigator.serial.addEventListener('disconnect', (e) => {
@@ -50,6 +52,8 @@ navigator.serial.addEventListener('disconnect', (e) => {
 
 navigator.serial.getPorts().then((ports) => {
   // Initialize the list of available ports with `ports` on page load.
+  console.log('ports')
+  console.log(ports)
 });
 
 button.addEventListener('click', () => {
