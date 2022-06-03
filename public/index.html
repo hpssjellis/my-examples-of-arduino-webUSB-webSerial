@@ -1,4 +1,4 @@
-<h6>Version 0.2.3-14</h6>
+<h6>Version 0.2.4-15</h6>
 
 
 
@@ -30,10 +30,10 @@ button.addEventListener('click', () => {
     // Connect to `port` or add it to the list of available ports.
     console.log("navigator.serial")
     console.log(navigator.serial)    
-    console.log("navigator.SerialPort")
-    console.log(navigator.SerialPort)
-    console.log("navigator.serial.SerialPort")
-    console.log(navigator.serial.SerialPort)
+    console.log("navigator.serialport")
+    console.log(navigator.serialport)
+    console.log("navigator.serial.serialport")
+    console.log(navigator.serial.serialport)
 
   }).catch((e) => {
     // The user didn't select a port.
@@ -65,9 +65,11 @@ button2.addEventListener('click2', () => {
   navigator.serial.requestPort({ filters: [{ usbVendorId }]}).then((port) => {
     // Connect to `port` or add it to the list of available ports.    
     console.log("navigator.serial")
-    console.log(navigator.serial)   
-    console.log("navigator.serial.SerialPort")
-    console.log(navigator.serial.SerialPort)
+    console.log(navigator.serial)    
+    console.log("navigator.serialport")
+    console.log(navigator.serialport)
+    console.log("navigator.serial.serialport")
+    console.log(navigator.serial.serialport)
 
   }).catch((e) => {    
     console.log('e')
