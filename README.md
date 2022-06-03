@@ -18,7 +18,7 @@ https://www.adafruit.com/product/3878
 
 https://www.adafruit.com/product/3679
 
-
+https://stackoverflow.com/questions/70920727/read-usb-serial-port-data-with-web-serial-api-in-javascript
 
 
 ## Started Jun3, 2022 None of this is working yet!
