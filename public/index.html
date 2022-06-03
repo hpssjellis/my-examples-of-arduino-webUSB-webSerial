@@ -1,10 +1,11 @@
-<h6>Version 0.1.6-9</h6>
+<h6>Version 0.1.7-10</h6>
 
 
 
 
 <h3 align=center>Testing Web Browser to Arduino WebUSB or WebSerial</h3>
 <input id="button" type="button" value="Weird" />
+<input id="button2" type="button" value="Weird2" />
 
 
 <script>
@@ -56,11 +57,17 @@ navigator.serial.getPorts().then((ports) => {
   console.log(ports)
 });
 
-button.addEventListener('click', () => {
+button2.addEventListener('click2', () => {
   const usbVendorId = 0x2341;  // Specific for Arduino
   navigator.serial.requestPort({ filters: [{ usbVendorId }]}).then((port) => {
-    // Connect to `port` or add it to the list of available ports.
-  }).catch((e) => {
+    // Connect to `port` or add it to the list of available ports.    
+    console.log("navigator.serial")
+    console.log(navigator.serial)
+    console.log('e')
+    console.log(e)
+  }).catch((e) => {    
+    console.log('e')
+    console.log(e)
     // The user didn't select a port.
   });
 });
