@@ -12,7 +12,7 @@ Demo at   https://hpssjellis.github.io/my-examples-of-arduino-webusb-webSerial/p
 
 
 
-
+https://learn.adafruit.com/using-webusb-with-arduino-and-tinyusb?view=all
 
 
 Webserial API  https://wicg.github.io/serial/#serial-interface
