@@ -25,9 +25,10 @@ navigator.serial.getPorts().then((ports) => {
 });
 
 button.addEventListener('click', () => {
-  const usbVendorId = 0x2341;   // Specific for Arduino
+  const usbVendorId = 0x2341;   // Specific for Arduino  //usbProductId: ???
   navigator.serial.requestPort({ filters: [{ usbVendorId }]}).then((port) => {
     // Connect to `port` or add it to the list of available ports.
+    serial.write('1');
     console.log("navigator.serial")
     console.log(navigator.serial)    
     console.log("navigator.serialport")
