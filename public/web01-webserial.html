@@ -1,0 +1,105 @@
+<h6>Version 0.2.6-21</h6>
+
+
+
+
+<h3 align=center>Testing Web Browser to Arduino WebUSB or WebSerial</h3>
+<input id="button" type="button" value="Weird" />
+<input id="button2" type="button" value="Weird2" />
+
+
+<script>
+  
+  
+  
+  navigator.serial.addEventListener('connect', (e) => {
+  // Connect to `e.target` or add it to a list of available ports.
+});
+
+navigator.serial.addEventListener('disconnect', (e) => {
+  // Remove `e.target` from the list of available ports.
+});
+
+navigator.serial.getPorts().then((ports) => {
+  // Initialize the list of available ports with `ports` on page load.
+});
+
+button.addEventListener('click', () => {
+  const usbVendorId = 0x2341;   // Specific for Arduino  //usbProductId: ???
+      const port = await  navigator.serial.requestPort({ filters: [{ usbVendorId }]}).then((port) => {
+    // Connect to `port` or add it to the list of available ports.
+        
+        
+        console.log("port.getInfo()")
+        console.log(port.getInfo())
+        /*
+    navigator.serial.write('1');
+    console.log("navigator.serial")
+    console.log(navigator.serial)    
+    console.log("navigator.serialport")
+    console.log(navigator.serialport)
+    console.log("navigator.serial.serialport")
+    console.log(navigator.serial.serialport)
+    */
+    
+    /*
+    
+    const port = await navigator.serial.requestPort({ filters });
+
+const { usbProductId, usbVendorId } = port.getInfo();
+    */
+
+  }).catch((e) => {
+    // The user didn't select a port.
+    console.log('e')
+    console.log(e)
+  });
+});
+  
+  
+  
+  navigator.serial.addEventListener('connect', (e) => {
+  // Connect to `e.target` or add it to a list of available ports.
+    console.log('e.target')
+    console.log(e.target)
+});
+
+navigator.serial.addEventListener('disconnect', (e) => {
+  // Remove `e.target` from the list of available ports.
+});
+
+navigator.serial.getPorts().then((ports) => {
+  // Initialize the list of available ports with `ports` on page load.
+  console.log('ports')
+  console.log(ports)
+});
+
+button2.addEventListener('click2', () => {
+  const usbVendorId = 0x2341;  // Specific for Arduino
+  navigator.serial.requestPort({ filters: [{ usbVendorId }]}).then((port) => {
+    // Connect to `port` or add it to the list of available ports.    
+    console.log("navigator.serial")
+    console.log(navigator.serial)    
+    console.log("navigator.serialport")
+    console.log(navigator.serialport)
+    console.log("navigator.serial.serialport")
+    console.log(navigator.serial.serialport)
+    console.log("navigator.serial.read()")
+    console.log(navigator.serial.read())
+
+  }).catch((e) => {    
+    console.log('e')
+    console.log(e)
+    // The user didn't select a port.
+  });
+});
+</script>
+
+
+
+
+
+<input id="myBut01" type="button" value="ledOn" onclick="{
+                                        
+  alert('Trying webSerial')                                        
+}">
