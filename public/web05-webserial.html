@@ -1,0 +1,78 @@
+<script>
+  // from https://stackoverflow.com/questions/70920727/read-usb-serial-port-data-with-web-serial-api-in-javascript
+class LineBreakTransformer {
+      constructor() {
+        this.chunks = "";
+      }
+
+      transform(chunk, controller) {
+        this.chunks += chunk;
+        const lines = this.chunks.split("\r\n");
+        this.chunks = lines.pop();
+        lines.forEach((line) => controller.enqueue(line));
+      }
+
+      flush(controller) {
+        controller.enqueue(this.chunks);
+      }
+  }
+async function onStartButtonClick() {
+    try {
+      const port = await navigator.serial.requestPort();
+      console.log("req");
+      await port.open({ baudRate: 19200,       
+                        dataBits: 8,
+                        stopBits: 1,
+                        parity: "none",
+                        flowControl: "none",
+    });
+    const {usbProductId, usbVendorId}=port.getInfo();
+    document.getElementById("sdata").innerHTML=usbProductId+" "+ " <br>"+usbVendorId;
+    
+      console.log("opanning");
+        
+                        
+
+                const writer = port.writable.getWriter();
+                 console.log("true is");
+                const data = new Uint8Array([0x32]); 
+            
+                await writer.write(data);
+                console.log("succ");
+
+        
+            writer.releaseLock();
+
+      while (port.readable) {
+        
+        const textDecoder = new TextDecoderStream();
+        const readableStreamClosed = port.readable.pipeTo(textDecoder.writable);
+        const reader = textDecoder.readable
+        .pipeThrough(new TransformStream(new LineBreakTransformer()))
+        .getReader();
+        console.log("portreadable");
+
+        try {
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) {
+              console.log("Canceled");
+              break;
+            }
+            console.log("tryfun");
+            console.log(value);
+          }
+        } catch (error) {
+          console.log("Error: Read");
+          console.log(error);
+        } finally {
+          reader.releaseLock();
+        }
+      }
+    } catch (error) {
+      console.log("Error: Open");
+      console.log(error);
+    }
+
+     
+  }
