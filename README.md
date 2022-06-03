@@ -8,6 +8,15 @@ Single page vanilla javascript source at [public/index.html](public/index.html)
 Demo at   https://hpssjellis.github.io/my-examples-of-arduino-webusb-webSerial/public/index.html
 
 
+## Cables for Mobile devices. Note: Mobile has some issues
+
+https://www.adafruit.com/product/3878
+
+https://www.adafruit.com/product/3679
+
+
+
+
 ## Started Jun3, 2022 None of this is working yet!
 
 
