@@ -1,33 +1,21 @@
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0"> </script> 
 
  
+<script>
 
- 
- <!-- ************* Next we define the Javascript inside a web element so that the page can be refreshed dynamically **************-->
- 
- <!--  ************* The entire next line can be replaced with the <script> tag for a more conventional approch. ****************** -->
 
-<style id="myButton124" onload="{document.getElementById('myButton124').click()}" onclick="{
- // define the function
-                                                                               
-myTypicalFunctionNew = async function(){       // note how the brakets for passing variables is removed from the function name                                                          
-      const matrixShape = [2, 3];  // 2 rows, 3 columns.
-      const matrix = tf.tensor2d([10, 20, 30, 40, 50, 60], matrixShape, 'int32');
-      const vector = tf.tensor1d([0, 1, 2], 'int32');
-      const myResult = tf.dot(matrix, vector);
-                                                           
-      document.getElementById('myDiv2233A').innerHTML = 'Awaiting the result of the tf.dot() function: The array shape is ' + myResult.shape + ' data is ' + await myResult.data()
+myTypicalFunctionNew = async function(){       // note how the brakets for passing variables is removed from the function name                                                                                                                   
+      document.getElementById('myDiv01').innerHTML = 'Awaiting the result of the tf.dot() function: The array shape is '
 } 
-                                                                                             
-}"></style>
-<!-- If you replaced the <style> tag with a <script> tag don't forget to change the above line to just </script>  -->
-     
+
+</script>
+ 
+ 
+                                                                    
     
-<input id="myButton2233A" type="button" value="My New Typical Async Function" onclick="{  
-                                                                                
-   // call the function                                                                              
+<input id="myButton2233A" type="button" value="My New" onclick="{  
+                                                                                                                                                            
    myTypicalFunctionNew()   
                                                                  
 }"><br><br>
 
-<div id='myDiv2233A'>...</div><br>
+<div id='myDiv01'>...</div><br>
