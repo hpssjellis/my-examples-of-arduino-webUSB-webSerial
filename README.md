@@ -1,6 +1,11 @@
 # my-examples-of-arduino-webusb-webSerial
 
 
+remember
+
+```chrome://device-log/```
+
+
 
 Single page vanilla javascript source at [public/index.html](public/index.html)
 
