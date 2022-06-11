@@ -6,6 +6,11 @@ remember
 ```chrome://device-log/```
 
 
+
+https://bugs.chromium.org/p/chromium/issues/list?q=component:Blink%3EUSB
+
+
+
 example
 
 https://medium.com/@gerybbg/webusb-by-example-b4358e6a133c
