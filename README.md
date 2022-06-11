@@ -6,6 +6,11 @@ remember
 ```chrome://device-log/```
 
 
+example
+
+https://medium.com/@gerybbg/webusb-by-example-b4358e6a133c
+
+
 
 Single page vanilla javascript source at [public/index.html](public/index.html)
 
