@@ -1,4 +1,4 @@
-<h6>Version 0.0.3-11</h6>
+<h6>Version 0.1.0-12</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -47,7 +47,18 @@ connectButton.onclick = async () => {
 
 const listen = async () => {
   //const result = await usbDevice.transferIn(3, 64);
-  const result = await usbDevice.transferIn(5, 64);
+  let result;
+  for (let myLoop = 2; myLoop <= 6; myLoop++) {
+    try {
+      result = await usbDevice.transferIn(myLoop, 64);
+    } catch(err) {
+       console.log('transferIn(myLoop, 64);')
+       console.log(`Error: ${err}`);    
+       document.getElementById('myDiv01').innerHTML += 'loop'+ myLoop + ', error = ' + err + '<BR>'
+    }
+  }
+  
+  
   console.log(`Received: ${result}`);
 
   const decoder = new TextDecoder();
