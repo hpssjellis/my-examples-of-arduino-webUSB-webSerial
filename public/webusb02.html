@@ -1,4 +1,4 @@
-<h6>Version 0.1.3-22</h6>
+<h6>Version 0.1.3-23</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -59,15 +59,15 @@ const listen = async () => {
   });
   
   */
-  /*
+  
     await usbDevice.controlTransferOut({
     requestType: 'class',
     recipient: 'interface',
     request: 0x22,  // vendor-specific request: enable channels
     value: 0x01,  // 0b00010011 (channels 1, 2 and 5)
-    index: 0x02   // Interface 1 is the recipient
+    index: 2   // Interface 1 is the recipient
   });
-  */
+  
   /*
   await usbDevice.controlTransferOut({
     requestType: 'vendor',
