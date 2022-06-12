@@ -40,9 +40,12 @@ const listen = async () => {
       minute: "numeric",
       second: "numeric",
     });
+  }  else {
+
+    documnet.getElementById('myDiv01').innerHTML = 'hi'
   }
   listen();
-};
+}; 
 
 const hexToRgb = hex => {
   const r = parseInt(hex.substring(1, 3), 16); //start at 1 to avoid #
@@ -64,3 +67,8 @@ disconnectButton.onclick = async () => {
   connectButton.style.display = "initial";
   disconnectButton.style.display = "none";
 };
+
+
+
+
+<div id="myDiv01">...</div>
