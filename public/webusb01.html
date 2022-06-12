@@ -1,8 +1,19 @@
+<h6>Version 0.0.1-1</h6>
+
+<input class="button" type="button" id="connectButton" value="Connect" />
+<input class="button" type="button" id="disconnectButton" value="Disconnect" />
+Device Heartbeat: <span id="deviceHeartbeat"></span>
+<br/><br/>
+Button Pressed: <span id="deviceButtonPressed"></span>
+<div id="myDiv01">...</div>
+
+
+
 <script>
 const connectButton = document.getElementById("connectButton");
 const disconnectButton = document.getElementById("disconnectButton");
-const colourPicker = document.getElementById("colourPicker");
-const colourButton = document.getElementById("colourButton");
+//const colourPicker = document.getElementById("colourPicker");
+//const colourButton = document.getElementById("colourButton");
 
 const connect = document.getElementById("connect");
 const deviceHeartbeat = document.getElementById("deviceHeartbeat");
@@ -15,7 +26,7 @@ connectButton.onclick = async () => {
   });
 
   await device.open();
-  if (usbDevice.configuration === null)
+  if (usbDevice.configuration === null) {
     await usbDevice.selectConfiguration(1);
     await usbDevice.claimInterface(0);
   }
@@ -71,9 +82,4 @@ disconnectButton.onclick = async () => {
 
 
 </script>
-        <input class="button" type="button" id="connectButton" value="Connect" />
-        <input class="button" type="button" id="disconnectButton" value="Disconnect" />
-            Device Heartbeat: <span id="deviceHeartbeat"></span>
-            <br/><br/>
-            Button Pressed: <span id="deviceButtonPressed"></span>
-<div id="myDiv01">...</div>
+
