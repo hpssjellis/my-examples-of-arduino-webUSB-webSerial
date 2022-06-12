@@ -1,4 +1,4 @@
-<h6>Version 0.1.2-18</h6>
+<h6>Version 0.1.2-19</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -58,7 +58,7 @@ const listen = async () => {
   });
   
   while (true) {
-  let result = await usbDevice.transferIn(1, 6);
+  let result = await usbDevice.transferIn(2, 6);   // 1 2 or 5
 
   if (result.data && result.data.byteLength === 6) {
     console.log('Channel 1: ' + result.data.getUint16(0));
