@@ -1,4 +1,4 @@
-<h6>Version 0.0.2-6</h6>
+<h6>Version 0.0.2-8</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -27,21 +27,21 @@ connectButton.onclick = async () => {
     filters: [{ vendorId: 0x2341 }]   // from nrf52840 to arduino 
   });
 
-  documnet.getElementById('myDiv01').innerHTML = 'Trying to connect<br>'
+  document.getElementById('myDiv01').innerHTML = 'Trying to connect<br>'
   await usbDevice.open();
-  documnet.getElementById('myDiv01').innerHTML += 'Open<br>'
+  document.getElementById('myDiv01').innerHTML += 'Open<br>'
   if (usbDevice.configuration === null) {
     await usbDevice.selectConfiguration(1);
     await usbDevice.claimInterface(0);
     
-  documnet.getElementById('myDiv01').innerHTML += 'config<br>'
+  document.getElementById('myDiv01').innerHTML += 'config<br>'
   }
 
   connected.style.display = "block";
   connectButton.style.display = "none";
   disconnectButton.style.display = "initial";
   
-  documnet.getElementById('myDiv01').innerHTML += 'Listening<br>'
+  document.getElementById('myDiv01').innerHTML += 'Listening<br>'
   listen();
 };
 
@@ -51,11 +51,11 @@ const listen = async () => {
   const decoder = new TextDecoder();
   const message = decoder.decode(result.data);
 
-  documnet.getElementById('myDiv01').innerHTML += 'Decoding<br>'
+  document.getElementById('myDiv01').innerHTML += 'Decoding<br>'
   
-  documnet.getElementById('myDiv01').innerHTML += decoder+'<br>'
+  document.getElementById('myDiv01').innerHTML += decoder+'<br>'
 
-  documnet.getElementById('myDiv01').innerHTML += message+'<br>'
+  document.getElementById('myDiv01').innerHTML += message+'<br>'
   const messageParts = message.split(" = ");
   if (messageParts[0] === "Count") {
     deviceHeartbeat.innerText = messageParts[1];
