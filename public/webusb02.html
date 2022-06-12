@@ -1,4 +1,4 @@
-<h6>Version 0.1.2-16</h6>
+<h6>Version 0.1.2-17</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -48,7 +48,32 @@ connectButton.onclick = async () => {
 const listen = async () => {
   //const result = await usbDevice.transferIn(3, 64);
   let result;
-  for (let myLoop = 0; myLoop <= 10; myLoop++) {
+  
+  await device.controlTransferOut({
+    requestType: 'vendor',
+    recipient: 'interface',
+    request: 0x01,  // vendor-specific request: enable channels
+    value: 0x0013,  // 0b00010011 (channels 1, 2 and 5)
+    index: 0x0001   // Interface 1 is the recipient
+  });
+  
+  while (true) {
+  let result = await device.transferIn(1, 6);
+
+  if (result.data && result.data.byteLength === 6) {
+    console.log('Channel 1: ' + result.data.getUint16(0));
+    console.log('Channel 2: ' + result.data.getUint16(2));
+    console.log('Channel 5: ' + result.data.getUint16(4));
+  }
+
+  if (result.status === 'stall') {
+    console.warn('Endpoint stalled. Clearing.');
+    await device.clearHalt(1);
+  }
+}
+  
+  /*
+  for (let myLoop = 1; myLoop <= 10; myLoop++) {
     try {
       result = await usbDevice.transferIn(myLoop, 64);
     } catch(err) {
@@ -58,6 +83,9 @@ const listen = async () => {
     }
   }
   
+  
+  
+  */
   
   console.log(await `Received: ${result}`);
 
