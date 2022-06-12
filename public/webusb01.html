@@ -1,4 +1,4 @@
-<h6>Version 0.1.1-14</h6>
+<h6>Version 0.1.1-15</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -52,7 +52,7 @@ const listen = async () => {
     try {
       result = await usbDevice.transferIn(myLoop, 64);
     } catch(err) {
-       console.log('transferIn(myLoop, 64);')
+       console.log('transferIn(' + myLoop + ', 64);')
        console.log(`Error: ${err}`);    
        document.getElementById('myDiv01').innerHTML += 'loop: '+ myLoop + ', error = ' + err + '<br>'
     }
