@@ -1,4 +1,4 @@
-<h6>Version 0.1.2-17</h6>
+<h6>Version 0.1.2-18</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -47,9 +47,9 @@ connectButton.onclick = async () => {
 
 const listen = async () => {
   //const result = await usbDevice.transferIn(3, 64);
-  let result;
+ // let result;
   
-  await device.controlTransferOut({
+  await usbDevice.controlTransferOut({
     requestType: 'vendor',
     recipient: 'interface',
     request: 0x01,  // vendor-specific request: enable channels
@@ -58,7 +58,7 @@ const listen = async () => {
   });
   
   while (true) {
-  let result = await device.transferIn(1, 6);
+  let result = await usbDevice.transferIn(1, 6);
 
   if (result.data && result.data.byteLength === 6) {
     console.log('Channel 1: ' + result.data.getUint16(0));
@@ -87,6 +87,9 @@ const listen = async () => {
   
   */
   
+  /*
+  
+  
   console.log(await `Received: ${result}`);
 
   const decoder = new TextDecoder();
@@ -111,7 +114,13 @@ const listen = async () => {
    // documnet.getElementById('myDiv01').innerHTML = 'hi'
   }
   listen();
-}; 
+  
+  
+  */
+  
+  listen();  
+  
+}; // end listen
 
 const hexToRgb = hex => {
   const r = parseInt(hex.substring(1, 3), 16); //start at 1 to avoid #
