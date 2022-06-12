@@ -19,14 +19,16 @@ const connect = document.getElementById("connect");
 const deviceHeartbeat = document.getElementById("deviceHeartbeat");
 const deviceButtonPressed = document.getElementById("deviceButtonPressed");
 
-let device;
+let usbDevice;
+  
+  
 connectButton.onclick = async () => {
-  device = await navigator.usb.requestDevice({
+  usbDevice = await navigator.usb.requestDevice({
     filters: [{ vendorId: 0x2341 }]   // from nrf52840 to arduino 
   });
 
   documnet.getElementById('myDiv01').innerHTML = 'Trying to connect<br>'
-  await device.open();
+  await usbDevice.open();
   documnet.getElementById('myDiv01').innerHTML += 'Open<br>'
   if (usbDevice.configuration === null) {
     await usbDevice.selectConfiguration(1);
@@ -44,7 +46,7 @@ connectButton.onclick = async () => {
 };
 
 const listen = async () => {
-  const result = await device.transferIn(3, 64);
+  const result = await usbDevice.transferIn(3, 64);
 
   const decoder = new TextDecoder();
   const message = decoder.decode(result.data);
@@ -88,7 +90,7 @@ colourButton.onclick = async () => {
   */
 
 disconnectButton.onclick = async () => {
-  await device.close();
+  await usbDevice.close();
 
   connected.style.display = "none";
   connectButton.style.display = "initial";
