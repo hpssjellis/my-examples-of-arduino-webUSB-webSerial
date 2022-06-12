@@ -1,4 +1,4 @@
-<h6>Version 0.0.3-10</h6>
+<h6>Version 0.0.3-11</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -46,7 +46,9 @@ connectButton.onclick = async () => {
 };
 
 const listen = async () => {
-  const result = await usbDevice.transferIn(3, 64);
+  //const result = await usbDevice.transferIn(3, 64);
+  const result = await usbDevice.transferIn(5, 64);
+  console.log(`Received: ${result}`);
 
   const decoder = new TextDecoder();
   const message = decoder.decode(result.data);
