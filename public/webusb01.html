@@ -1,4 +1,4 @@
-<h6>Version 0.1.1-15</h6>
+<h6>Version 0.1.1-16</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -48,7 +48,7 @@ connectButton.onclick = async () => {
 const listen = async () => {
   //const result = await usbDevice.transferIn(3, 64);
   let result;
-  for (let myLoop = 0; myLoop <= 10; myLoop++) {
+  for (let myLoop = 1; myLoop <= 10; myLoop++) {
     try {
       result = await usbDevice.transferIn(myLoop, 64);
     } catch(err) {
