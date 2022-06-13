@@ -17,6 +17,9 @@ var serial = {};
       { 'vendorId': 0x2341, 'productId': 0x804e },
       { 'vendorId': 0x2341, 'productId': 0x804f },
       { 'vendorId': 0x2341, 'productId': 0x8050 },
+      { 'vendorId': 0x2341, 'productId': 0x8057 }, // Arduino NANO 33 IoT
+      { 'vendorId': 0x2341, 'productId': 0x025B }, // Arduino PortentaH7
+      { 'vendorId': 0x2886, 'productId': 0x802F }, // Seeeduino XIAO
     ];
     return navigator.usb.requestDevice({ 'filters': filters }).then(
       device => new serial.Port(device)
