@@ -1,4 +1,4 @@
-<h6>Version 0.1.1-17</h6>
+<h6>Version 0.1.1-18</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -32,7 +32,9 @@ connectButton.onclick = async () => {
   document.getElementById('myDiv01').innerHTML += 'Open<br>'
   if (usbDevice.configuration === null) {
     await usbDevice.selectConfiguration(1);
-    await usbDevice.claimInterface(0);
+    //   await usbDevice.claimInterface(0);
+    await usbDevice.claimInterface(2);
+    await usbDevice.selectAlternateInterface(2, 0))
     
      
     await usbDevice.controlTransferOut({
