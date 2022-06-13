@@ -1,4 +1,4 @@
-<h6>Version 0.1.3-23</h6>
+<h6>Version 0.1.3-24</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -60,6 +60,9 @@ const listen = async () => {
   
   */
   
+  
+  /*
+  
     await usbDevice.controlTransferOut({
     requestType: 'class',
     recipient: 'interface',
@@ -67,6 +70,9 @@ const listen = async () => {
     value: 0x01,  // 0b00010011 (channels 1, 2 and 5)
     index: 2   // Interface 1 is the recipient
   });
+  
+  
+  */
   
   /*
   await usbDevice.controlTransferOut({
@@ -78,7 +84,7 @@ const listen = async () => {
   });
   */
   while (true) {
-  let result = await usbDevice.transferIn(1, 6);   // 1 2 or 5
+  let result = await usbDevice.transferIn(2, 6);   // 1 2 or 5
 
   if (result.data && result.data.byteLength === 6) {
     console.log('Channel 1: ' + result.data.getUint16(0));
@@ -162,7 +168,7 @@ colourButton.onclick = async () => {
 disconnectButton.onclick = async () => {
   await usbDevice.close();
 
- 
+ console.log('Device disconnected when done')
   connectButton.style.display = "initial";
   disconnectButton.style.display = "none";
 };
