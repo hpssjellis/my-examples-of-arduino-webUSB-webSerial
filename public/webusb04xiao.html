@@ -78,7 +78,7 @@ const listen = async () => {
   });
   */
   while (true) {
-  let result = await usbDevice.transferIn(2, 6);   // 1 2 or 5
+  let result = await usbDevice.transferIn(1, 6);   // 1 2 or 5
 
   if (result.data && result.data.byteLength === 6) {
     console.log('Channel 1: ' + result.data.getUint16(0));
