@@ -10,8 +10,8 @@ Add 'vendorId': 0x2341 and 0x2a03 in line 27 and line 28
 <script>
 serial.requestPort = function() {
   const filters = [
-    { 'vendorId': 0x2341 },
-    { 'vendorId': 0x025B }
+    { 'vendorId': 0x2886 },   // seeduino
+    { 'vendorId': 0x802F }    // XIAO
   ];
   return navigator.usb.requestDevice({ 'filters': filters }).then(
     device => new serial.Port(device)
