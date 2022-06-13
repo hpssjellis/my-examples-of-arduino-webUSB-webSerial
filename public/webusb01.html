@@ -34,7 +34,7 @@ connectButton.onclick = async () => {
     await usbDevice.selectConfiguration(1);
     //   await usbDevice.claimInterface(0);
     await usbDevice.claimInterface(2);
-    await usbDevice.selectAlternateInterface(2, 0))
+    await usbDevice.selectAlternateInterface(2, 0)
     
      
     await usbDevice.controlTransferOut({
