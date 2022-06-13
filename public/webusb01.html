@@ -1,4 +1,4 @@
-<h6>Version 0.1.1-16</h6>
+<h6>Version 0.1.1-17</h6>
 
 <input class="button" type="button" id="connectButton" value="Connect" />
 <input class="button" type="button" id="disconnectButton" value="Disconnect" /><br>
@@ -33,6 +33,42 @@ connectButton.onclick = async () => {
   if (usbDevice.configuration === null) {
     await usbDevice.selectConfiguration(1);
     await usbDevice.claimInterface(0);
+    
+     
+    await usbDevice.controlTransferOut({
+    requestType: 'standard',
+    recipient: 'endpoint',
+    request: 1,  // vendor-specific request: enable channels
+    value: 0,  // 0b00010011 (channels 1, 2 and 5)
+    index: 129   // Interface 1 is the recipient
+  });
+  
+  
+  
+  
+  /*
+  
+    await usbDevice.controlTransferOut({
+    requestType: 'class',
+    recipient: 'interface',
+    request: 0x22,  // vendor-specific request: enable channels
+    value: 0x01,  // 0b00010011 (channels 1, 2 and 5)
+    index: 2   // Interface 1 is the recipient
+  });
+  
+  
+  */
+  
+  /*
+  await usbDevice.controlTransferOut({
+    requestType: 'vendor',
+    recipient: 'interface',
+    request: 0x01,  // vendor-specific request: enable channels
+    value: 0x0013,  // 0b00010011 (channels 1, 2 and 5)
+    index: 0x0001   // Interface 1 is the recipient
+  });
+  */
+    
     
     document.getElementById('myDiv01').innerHTML += 'config<br>'
   }
