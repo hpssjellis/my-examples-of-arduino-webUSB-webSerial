@@ -18,8 +18,12 @@
         });
 }
 
+  
+  
+  
 navigator.usb.requestDevice({
-    filters: [{}]
+  //  filters: [{}]
+      filters: [{ vendorId: 0x2886 }]   // Seeeduino XIAO
 }).then((selectedDevice) => {
     device = selectedDevice;
     return device.open()
@@ -33,6 +37,11 @@ navigator.usb.requestDevice({
   
 </script>
 
+<h6>Version 0.0.1-1</h6>
+
+
+
+<!--
 
 let y;
 navigator.usb.requestDevice({
@@ -69,4 +78,4 @@ y.controlTransferIn({
 
 SUBSYSTEM=="usb", ATTR{idVendor}=="[yourdevicevendor]", MODE="0664", GROUP="plugdev"
 
-
+-->
