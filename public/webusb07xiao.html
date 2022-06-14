@@ -1,20 +1,6 @@
 <script>
   let y;
   
-  y.controlTransferIn({
-        requestType: 'standard',
-        recipient: 'device',
-        request: 0x06,
-        value: 0x0302,
-        index: 0x409
-    }, 255)
-        .then(result => {
-            let decoder = new TextDecoder()
-            console.log(decoder.decode(result.data));
-            console.log('sent req');
-        }).catch(error => {
-            console.log(error);
-});
 
   
   
@@ -55,12 +41,28 @@ navigator.usb.requestDevice({
         .then(() => device.claimInterface(device.configuration.interfaces[0].interfaceNumber))
         .then(() => {
             y = device;
+      
+        y.controlTransferIn({
+        requestType: 'standard',
+        recipient: 'device',
+        request: 0x06,
+        value: 0x0302,
+        index: 0x409
+    }, 255)
+        .then(result => {
+            let decoder = new TextDecoder()
+            console.log(decoder.decode(result.data));
+            console.log('sent req');
+        }).catch(error => {
+            console.log(error);
+});
+
         })
 });
 }  
 </script>
 
-<h6>Version 0.0.1-4</h6>
+<h6>Version 0.0.1-5</h6>
 <input type=button value=go onclick="{
    myWebUSB()                                  
                                      
