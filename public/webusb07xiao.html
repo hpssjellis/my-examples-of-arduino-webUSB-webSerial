@@ -19,8 +19,7 @@
 }
 
   
-  
-  
+function myWebUSB() { 
 navigator.usb.requestDevice({
   //  filters: [{}]
       filters: [{ vendorId: 0x2886 }]   // Seeeduino XIAO
@@ -34,10 +33,14 @@ navigator.usb.requestDevice({
             callTransfer(device);
         })
 });
-  
+}  
 </script>
 
-<h6>Version 0.0.1-1</h6>
+<h6>Version 0.0.1-2</h6>
+<input type=button value=go onclick="{
+   myWebUSB()                                  
+                                     
+}">
 
 
 
