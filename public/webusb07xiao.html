@@ -36,7 +36,7 @@ navigator.usb.requestDevice({
 }).then((selectedDevice) => {
     device = selectedDevice;
     return device.open()
-        .then(() => device.reset())
+       // .then(() => device.reset())
         .then(() => device.selectConfiguration(1))
         .then(() => device.claimInterface(device.configuration.interfaces[0].interfaceNumber))
         .then(() => {
@@ -62,7 +62,7 @@ navigator.usb.requestDevice({
 }  
 </script>
 
-<h6>Version 0.0.1-5</h6>
+<h6>Version 0.0.1-6</h6>
 <input type=button value=go onclick="{
    myWebUSB()                                  
                                      
