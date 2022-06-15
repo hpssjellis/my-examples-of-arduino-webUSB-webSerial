@@ -54,11 +54,11 @@ void loop() {
   if (readString.length() > 0) {
     Serial.println(readString);
 
-    if (readString == "on"){
+    if (readString == "a"){
       digitalWrite(LED_BUILTIN, LOW); //onboard LED LOW = on
       Serial.println("LED ON");
     }
-    if (readString == "off"){
+    if (readString == "b"){
       digitalWrite(LED_BUILTIN, HIGH);
       Serial.println("LED OFF");
     }
