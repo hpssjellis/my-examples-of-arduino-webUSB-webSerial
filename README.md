@@ -1,6 +1,22 @@
 # my-examples-of-arduino-webusb-webSerial
 
 
+After trying lots of things the only main important files are
+
+Reminder higher number means latest version
+
+[public/webserial-and-polfill02.html](public/webserial-and-polfill02.html)  The web page
+
+
+[public/arduino04-webserial.ino](public/arduino04-webserial.ino)  The arduino Code
+
+
+
+
+
+
+
+
 remember
 
 ```chrome://device-log/```
