@@ -1,5 +1,5 @@
 
-<h6> Version 0.1.1-15   </h6>
+<h6> Version 0.1.1-16   </h6>
 
 <h1 align=center>Both WebSerial and Web-Serial-Polyfill</h1>
 
@@ -33,13 +33,13 @@
   
 
 document.getElementById('connectButton').addEventListener('click', () => {
-  if (navigator.serial) {
-    connectSerial();
-  } else {
-    document.getElementById('myDiv01').innerHTML = 'Web Serial API not supported. Switching to Polyfill<br>'
+ // if (navigator.serial) {
+ //   connectSerial();
+ // } else {
+  //  document.getElementById('myDiv01').innerHTML = 'Web Serial API not supported. Switching to Polyfill<br>'
     myPoly()
 
-  }
+  //}
 });
 
 async function connectSerial() {
